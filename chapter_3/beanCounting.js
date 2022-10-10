@@ -20,10 +20,8 @@ const beanCounting = () => {
         char_ammount += 1;
       }
     }
-
     console.log(char_ammount);
   }
-
   
   countChar("Banana", "a");
 }
