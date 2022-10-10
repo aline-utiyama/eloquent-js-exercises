@@ -12,7 +12,7 @@ const chessboard = (size) => {
     }
 
     while(count < size) {
-      if(count % 2 == 0) {
+      if(count % 2 === 0) {
         string = string + " ";
         count++;
       } else {
