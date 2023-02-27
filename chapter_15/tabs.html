@@ -1,0 +1,45 @@
+<tab-panel>
+  <div data-tabname="one">Tab one</div>
+  <div data-tabname="two">Tab two</div>
+  <div data-tabname="three">Tab three</div>
+</tab-panel>
+<script>
+  function asTabs(node) {
+    // Your code here.
+    let buttonList = document.createElement("div");
+
+    const selectTab = (tabId) => {
+      const tabs = document.querySelectorAll('[data-tabname]');
+      
+      for (let tab of tabs) {
+        let tabName = tab.getAttribute("data-tabname");
+        const button = document.getElementById(tabName);
+
+        if(tabName === tabId) {
+          tab.style.display = 'block';
+          button.style.backgroundColor = 'cyan';
+        } else {
+          tab.style.display = 'none';
+          button.style.backgroundColor = 'white';
+        }
+      }
+    }
+
+    for(let element of node.children) {
+      let button = document.createElement("button");
+      button.textContent = element.textContent;
+      
+      let tabId = element.getAttribute("data-tabname");
+      button.setAttribute("id", tabId);
+      buttonList.appendChild(button);
+      
+      button.addEventListener('click', (event) => {
+        selectTab(tabId);
+      })
+    }
+
+    node.insertBefore(buttonList, node.firstChild);
+    selectTab('one');
+  }
+  asTabs(document.querySelector("tab-panel"));
+</script>
