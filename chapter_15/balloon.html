@@ -1,0 +1,25 @@
+<p id="balloon">🎈</p>
+
+<script>
+  // Your code here
+  let ballonSize = 15;
+  const balloon = document.getElementById('balloon');
+
+  const updateBallonSize = (size) => {
+    balloon.style.fontSize = `${size}px`
+  }
+
+  document.body.addEventListener('keydown', event => {
+    if(ballonSize > 70) {
+        balloon.textContent = "💥";
+    } else {
+      if(event.key === "ArrowUp"){
+        ballonSize += ballonSize * 0.1;
+        updateBallonSize(ballonSize);
+      } else if(event.key === "ArrowDown") {
+        ballonSize -= ballonSize * 0.1;
+        updateBallonSize(ballonSize);
+      }
+    }
+  })
+</script>
