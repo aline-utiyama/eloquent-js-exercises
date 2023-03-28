@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>Content Negotiation</h1>
+  </body>
+</html>
+<script>
+  async function getResponseText(type){
+    let response = await fetch("https://eloquentjavascript.net/author", {headers: {accept: type}});
+    console.log(response.text());
+  }
+
+  getResponseText("text/plain");
+  getResponseText("text/html");
+  getResponseText("application/json");
+  getResponseText("application/rainbows+unicorns");
+</script>
